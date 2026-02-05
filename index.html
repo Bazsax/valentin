@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Intro / greeting -->
+        <section id="intro" class="screen">
+            <div class="intro-content">
+                <h1 class="greeting-text">Szia Nóri <br>te hunci cunci</h1>
+            </div>
+        </section>
+
+        <!-- Question -->
+        <section id="question" class="screen hidden">
+            <div class="question-content">
+                <img
+                    src="imgs/greet.JPG"
+                    alt="Us together"
+                    class="question-image"
+                >
+                <h2 class="question-text">Leszel a Valentinom<br>???????????????? </h2>
+                <div class="buttons">
+                    <button id="yesBtn" class="btn yes">IGEEEEN!! 😍</button>
+                    <button id="noBtn" class="btn no">NEEEM!! 🤮</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- After YES: confirmation -->
+        <section id="accepted" class="screen hidden">
+            <div class="accepted-content">
+                <h2>I'm happy mappy💘</h2>
+                <img src="imgs/Messenger_creation_C60266F7-D0FE-4AEF-AD70-C50E31D1DAA2.jpeg" alt="Happy Mappy" class="yes-image">
+                <p>Nagyon szeretlek. Már majdnem 1 éve együtt. Nézzünk vissza néhány képet, kezdve a legelsővel.</p>
+                <button id="toGalleryBtn" class="btn yes small">Mutasd a képeket</button>
+            </div>
+        </section>
+
+        <!-- Gallery section -->
+        <section id="gallery" class="screen hidden">
+            <div class="gallery-container">
+                <!-- Slides will be injected by JavaScript from photos.json -->
+                <div class="gallery-loading">Töltés...</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

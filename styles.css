@@ -1,0 +1,414 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+    color: #2b0624;
+    overflow-x: hidden;
+}
+p{
+    font-weight: 600;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    position: relative;
+}
+
+.screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.screen.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Intro */
+#intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.greeting-text {
+    font-size: clamp(2.3rem, 6vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.greeting-text.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.greeting-text.slide-out {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+/* Question */
+.question-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+.question-image {
+    width: min(280px, 80vw);
+    max-height: 50vh;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+.yes-image {
+    width: min(280px, 80vw);
+    max-height: 50vh;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+.question-text {
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    margin-bottom: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 0px;
+}
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    /*box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);*/
+}
+/*
+.btn.yes {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: #fff;
+    position: relative;
+    z-index: 10;
+    transform-origin: left center;
+}*/
+
+.btn.yes {
+    /* Semi-transparent pink base */
+    background: rgba(255, 73, 128, 0.5); 
+    
+    /* The "Frosted" effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Support for Safari */
+    
+    /* The Glass Edge (thin white/pink border) */
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 1px 1px 4px 1px rgba(255,255,255,0.45) inset;
+
+    box-shadow: inset ;
+    
+    /* Text styling */
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Shadow for depth */
+    /*box-shadow: 0 8px 32px 0 rgba(255, 105, 135, 0.3);*/
+    
+    /* Your original positioning */
+    position: relative;
+    z-index: 10;
+    transform-origin: left center;
+    
+    /* Smooth transition for the growing effect */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Optional: round edges look better for glass */
+    border-radius: 50px;
+}
+
+.btn.yes.small {
+    font-size: 1.2rem;
+    padding: 1rem 1.6rem;
+}
+
+/*
+.btn.no {
+    background: #fff;
+    color: #ff4b6e;
+    position: relative;
+    z-index: 0;
+}*/
+
+.btn.no {
+    /* Transparent white base */
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* Frosted glass effect */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* Soft pinkish-white border for the glass edge */
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 1px 1px 4px 1px rgba(255,255,255,0.45) inset;
+
+    
+    /* Contrast color for the text */
+    color: #ff4b6e;
+    font-weight: 600;
+    
+    
+    /* Your original positioning */
+    position: relative;
+    z-index: 0;
+    
+    /* Aesthetics */
+    border-radius: 50px;
+    
+    /* Smooth transition for movement/scaling */
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Accepted section */
+.accepted-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.accepted-content h2 {
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    margin-bottom: 0.5rem;
+}
+
+.accepted-content p {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin-bottom: 0.5rem;
+}
+
+/* Gallery section */
+#gallery {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+}
+
+.gallery-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.gallery-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1rem;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-meta {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .gallery-container {
+        height: 100vh;
+    }
+}
+
+/* Image Modal / Lightbox */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.image-modal.active {
+    opacity: 1;
+}
+
+.image-modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    transition: background 0.2s ease;
+    line-height: 1;
+}
+
+.image-modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.image-modal-img {
+    max-width: 100%;
+    max-height: calc(100vh - 8rem);
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.image-modal-date {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1rem;
+    backdrop-filter: blur(8px);
+}
+
+@media (max-width: 768px) {
+    .image-modal {
+        padding: 1rem;
+    }
+    
+    .image-modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    .image-modal-img {
+        max-height: calc(100vh - 6rem);
+    }
+    
+    .image-modal-date {
+        bottom: 1rem;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
