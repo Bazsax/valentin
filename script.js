@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Yes / No logic
     let yesScale = 1;
     const buttonsContainer = document.querySelector(".buttons");
-    let buttonsMinHeight = 60; // Starting min-height
+    let buttonsMinHeight = 80; // Starting min-height
 
     noBtn.addEventListener("click", () => {
         // Each time she clicks "No", make "Yes" bigger
