@@ -101,7 +101,7 @@ p{
     max-height: 50vh;
     object-fit: cover;
     border-radius: 18px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+    /*box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);*/
 }
 
 .yes-image {
@@ -127,7 +127,7 @@ p{
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    min-height: 0px;
+    min-height: 80px;
 }
 
 .btn {
@@ -302,6 +302,7 @@ p{
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
+    text-wrap-mode: nowrap;
 }
 
 @media (min-width: 768px) {
